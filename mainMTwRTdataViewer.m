@@ -281,7 +281,7 @@ msg = rosmessage('sensor_msgs/Imu');
                 if ~strcmp(devIdUsed{iDev},'')
                     try
                         msg.Header.FrameId = devIdUsed{iDev};
-                        tmp = eul2quat([oriC(1), oriC(2), oriC(3)]);
+                        tmp = eul2quat([oriC(1), oriC(2), oriC(3)]*pi/180,'XYZ');
                         msg.Orientation.W = tmp(1);
                         msg.Orientation.X = tmp(2);
                         msg.Orientation.Y = tmp(3);
